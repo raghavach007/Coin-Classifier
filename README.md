@@ -1,135 +1,266 @@
-# 🪙 Coin Classifier using OpenCV & Deep Learning
+# 🪙 Indian Coin Classifier using OpenCV + EfficientNetB0
 
-An end-to-end computer vision project that detects Indian coins from an image and classifies each coin into its denomination using a Convolutional Neural Network (CNN).
+An AI-powered Indian coin recognition system that detects multiple scattered coins from an image and classifies them into their respective denominations using **Computer Vision** and **Deep Learning**.
 
-## Features
+---
 
-- Detects multiple coins in a single image
-- Crops each detected coin automatically
-- Removes the background using a circular mask
-- Classifies each coin using a trained CNN
+## 📌 Features
+
+- Detects multiple coins from a single image
+- Works on scattered coins placed on a plain background
+- Classifies coins into:
+  - ₹1
+  - ₹2
+  - ₹5
+  - ₹10
 - Displays prediction confidence for every detected coin
-- Supports visualization of detected coins and predictions
+- Calculates the total monetary value automatically
+- Uses OpenCV for coin detection
+- Uses EfficientNetB0 Transfer Learning for classification
 
 ---
 
-## Demo
-
-### Input Image
-
-(Add an image here)
-
-### Coin Detection
-
-(Add screenshot)
-
-### Predictions
-
-(Add screenshot showing confidence graphs)
-
----
-
-## Project Pipeline
-
-1. Read input image
-2. Detect coins using Hough Circle Transform
-3. Crop each detected coin
-4. Apply black circular background
-5. Resize image for the CNN
-6. Predict denomination
-7. Display confidence scores
-
-```
-
-```
-Input Image
-      │
-      ▼
-Detect Coins (OpenCV)
-      │
-      ▼
-Crop Coins
-      │
-      ▼
-Black Background
-      │
-      ▼
-Resize (256×256)
-      │
-      ▼
-CNN Model
-      │
-      ▼
-Predicted Coin + Confidence
-```
-
-```markdown
----
-
-## Tech Stack
+## 🛠️ Technologies Used
 
 - Python
 - OpenCV
 - TensorFlow / Keras
+- EfficientNetB0
 - NumPy
 - Matplotlib
 - Google Colab
 
 ---
 
-## Dataset
-
-The dataset consists of Indian coin images belonging to multiple denominations.
-
-Classes:
-- ₹1
-- ₹2
-- ₹5
-- ₹10
-
-Images were preprocessed before training by:
-- Detecting the coin
-- Cropping
-- Applying a black background
-- Resizing to 256×256 pixels
-
----
-
-## Model
-
-Architecture:
-- Convolutional Neural Network (CNN)
-
-Loss Function:
-- Categorical Crossentropy
-
-Optimizer:
-- Adam
-
-Evaluation Metric:
-- Accuracy
-
----
-
-## Results
-
-| Metric | Value |
-|---------|--------|
-| Training Accuracy | XX% |
-| Validation Accuracy | XX% |
-| Test Accuracy | XX% |
-
----
-
-## Folder Structure
+## 📂 Project Structure
 
 ```
-
 Coin-Classifier/
 │
-├── Dataset/
-├── Model/
-├── Notebooks/
-├── Results/
+├── dataset/
+│   ├── 1_rupee/
+│   ├── 2_rupee/
+│   ├── 5_rupee/
+│   └── 10_rupee/
+│
+├── model/
+│   └── best_coin_model.keras
+│
+├── notebooks/
+│   └── Coin_Classifier.ipynb
+│
+├── images/
+│   ├── sample1.jpg
+│   ├── sample2.jpg
+│   └── sample3.jpg
+│
 ├── README.md
 └── requirements.txt
+```
+
+---
+
+# Dataset
+
+The model was trained using a custom dataset consisting of cropped Indian coin images.
+
+| Coin | Images |
+|------|--------|
+| ₹1 | 500+ |
+| ₹2 | 500+ |
+| ₹5 | 500+ |
+| ₹10 | 300+ |
+
+Dataset includes:
+
+- Different lighting conditions
+- Different orientations
+- Multiple years of minting
+- Various coin designs
+- White background images
+
+---
+
+# Model Architecture
+
+Transfer Learning using **EfficientNetB0**
+
+```
+Input Image
+      │
+EfficientNetB0
+      │
+Global Average Pooling
+      │
+Dense Layer (4 Classes)
+      │
+Softmax
+```
+
+Only the classification head is trained while EfficientNetB0 is used as a pretrained feature extractor.
+
+---
+
+# Coin Detection Pipeline
+
+1. Read Image
+2. Convert to Grayscale
+3. Gaussian Blur
+4. Hough Circle Transform
+5. Detect Coin Centers
+6. Crop Individual Coins
+7. Remove Background
+8. Add White/Black Background
+9. Resize to 256×256
+10. Pass to EfficientNet Model
+11. Display Prediction
+12. Calculate Total Value
+
+---
+
+# Sample Output
+
+```
+Detected Coins: 3
+
+Coin 1
+Prediction: ₹5
+Confidence: 98.4%
+
+Coin 2
+Prediction: ₹1
+Confidence: 95.7%
+
+Coin 3
+Prediction: ₹2
+Confidence: 97.8%
+
+--------------------
+Total Value = ₹8
+```
+
+---
+
+# Training
+
+The classifier was trained using:
+
+- EfficientNetB0 (ImageNet Weights)
+- Adam Optimizer
+- Sparse Categorical Crossentropy
+- EarlyStopping
+- ReduceLROnPlateau
+- ModelCheckpoint
+
+Image Size:
+
+```
+256 × 256
+```
+
+Epochs:
+
+```
+15 + Fine Tuning
+```
+
+---
+
+# Results
+
+Training Accuracy
+
+```
+≈96%
+```
+
+Validation Accuracy
+
+```
+≈95%
+```
+
+The model performs well on unseen images with different orientations and lighting conditions.
+
+---
+
+# Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/raghavach007/Coin-Classifier.git
+```
+
+Move into the project
+
+```bash
+cd Coin-Classifier
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Usage
+
+Run the notebook or Python script.
+
+Upload an image containing scattered coins on a plain background.
+
+The program will:
+
+- Detect all coins
+- Classify each coin
+- Display confidence scores
+- Calculate the total value
+
+---
+
+# Future Improvements
+
+- Real-time webcam detection
+- Mobile application
+- Faster object detection using YOLO
+- Support for overlapping coins
+- Automatic background removal
+- Currency note recognition
+
+---
+
+# Screenshots
+
+## Coin Detection
+
+(Add screenshot here)
+
+---
+
+## Coin Classification
+
+(Add screenshot here)
+
+---
+
+## Final Output
+
+(Add screenshot here)
+
+---
+
+# Author
+
+**Raghava Chakravarthula**
+
+GitHub:
+https://github.com/raghavach007
+
+---
+
+# License
+
+This project is developed for educational and academic purposes.
