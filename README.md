@@ -1,10 +1,10 @@
-# 🪙 Indian Coin Classifier using OpenCV + EfficientNetB0
+# Indian Coin Classifier using OpenCV + EfficientNetB0
 
 An AI-powered Indian coin recognition system that detects multiple scattered coins from an image and classifies them into their respective denominations using **Computer Vision** and **Deep Learning**.
 
 ---
 
-## 📌 Features
+## Features
 
 - Detects multiple coins from a single image
 - Works on scattered coins placed on a plain background
@@ -20,7 +20,7 @@ An AI-powered Indian coin recognition system that detects multiple scattered coi
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - Python
 - OpenCV
@@ -32,7 +32,7 @@ An AI-powered Indian coin recognition system that detects multiple scattered coi
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Coin-Classifier/
