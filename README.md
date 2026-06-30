@@ -236,19 +236,21 @@ The program will:
 
 ## Coin Detection
 
-(Add screenshot here)
+<img width="378" height="494" alt="Screenshot 2026-06-30 at 10 21 23 AM" src="https://github.com/user-attachments/assets/258f3b6d-174c-4ed5-b967-57aea43fa3d3" />
+
 
 ---
 
 ## Coin Classification
 
-(Add screenshot here)
+<img width="868" height="270" alt="Screenshot 2026-06-30 at 10 23 38 AM" src="https://github.com/user-attachments/assets/00547172-4a86-4747-8e9a-b09b125eccf7" />
+
 
 ---
 
 ## Final Output
+<img width="1190" height="1180" alt="Prediction" src="https://github.com/user-attachments/assets/5177eba3-8b77-4253-b3f0-ed616bc2afda" />
 
-(Add screenshot here)
 
 ---
 
