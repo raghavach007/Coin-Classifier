@@ -171,13 +171,13 @@ Epochs:
 Training Accuracy
 
 ```
-≈96%
+≈91%
 ```
 
 Validation Accuracy
 
 ```
-≈95%
+≈89%
 ```
 
 The model performs well on unseen images with different orientations and lighting conditions.
