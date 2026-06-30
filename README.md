@@ -32,36 +32,8 @@ An AI-powered Indian coin recognition system that detects multiple scattered coi
 
 ---
 
-## Project Structure
-
-```
-Coin-Classifier/
-│
-├── dataset/
-│   ├── 1_rupee/
-│   ├── 2_rupee/
-│   ├── 5_rupee/
-│   └── 10_rupee/
-│
-├── model/
-│   └── best_coin_model.keras
-│
-├── notebooks/
-│   └── Coin_Classifier.ipynb
-│
-├── images/
-│   ├── sample1.jpg
-│   ├── sample2.jpg
-│   └── sample3.jpg
-│
-├── README.md
-└── requirements.txt
-```
-
----
-
 # Dataset
-
+Used 2-3 datsets and collected best suited set of coins and merged into a single dataset
 The model was trained using a custom dataset consisting of cropped Indian coin images.
 
 | Coin | Images |
